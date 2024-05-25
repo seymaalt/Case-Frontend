@@ -6,7 +6,7 @@ export const routes = [
     element: UserList,
   },
   {
-    path: '/register',
+    path: '/signUp',
     element: Register,
   }
 ];

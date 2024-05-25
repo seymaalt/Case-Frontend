@@ -5,6 +5,7 @@ import { Input, Button, FormErrorMessage } from "../../components";
 import { registerSchema } from "../../schemas";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../services/UserService";
+import { WidthFull } from "@mui/icons-material";
 export default function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -29,22 +30,25 @@ export default function Register() {
   });
 
   return (
-    <Stack>
-      <Container>
+    <Stack height="90vh" justifyContent="center" alignItems="center">
+      <Container maxWidth="sm" sx={{
+        border: "1px solid gray",
+        borderRadius:"5px"
+      }}>
         <Typography
           sx={{
-            color: "header.main",
             fontWeight: "bold",
             fontSize: "32px",
             textAlign: "center",
+            padding:"20px"
           }}
           gutterBottom
         >
-          Register
+          Sign Up
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           {error && <Typography color="error">{error}</Typography>}
-          <Grid container spacing={2} justifyContent="flex-end" mb={2}>
+          <Grid container spacing={3} justifyContent="center" mb={2}>
             <Grid item xs={12} md={6}>
               <Input
                 label="Name"
@@ -124,7 +128,20 @@ export default function Register() {
               />
             </Grid>
             <Grid item xs={12}>
-              <Button type="submit">Register</Button>
+              <Button
+                type="submit"
+                sx={{
+                  bgcolor: "red",
+                  borderRadius: "5px",
+                  height:"50px",
+                  fontWeight: "bold",
+                  '&:hover': {
+                    bgcolor: "red", // veya istediğiniz başka bir renk
+                  },
+                }}
+              >
+                Sign Up
+              </Button>
             </Grid>
           </Grid>
         </form>

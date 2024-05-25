@@ -4,15 +4,12 @@ import { routes } from "./routes/Routes";
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      {routes.map(({ path, element: Element }, index) => (
-        <Route key={index}>
+      <Routes>
+        {routes.map(({ path, element: Element }, index) => (
           <Route key={index} path={path} element={<Element />} />
-        </Route>
-      ))}
-    </Routes>
+        ))}
+      </Routes>
     </BrowserRouter>
-
   );
 }
 
