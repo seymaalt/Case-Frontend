@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   Box,
   Container,
@@ -11,12 +11,13 @@ import {
   ListItemText,
   ListItemAvatar,
   Avatar,
-  Typography
-} from '@mui/material';
+  Typography,
+} from "@mui/material";
 import { useState, useEffect } from "react";
 import { Button } from "../../components";
 import { getUsers } from "../../services/UserService";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { Add, AddIcCallOutlined } from "@mui/icons-material";
 
 export default function UserList() {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ export default function UserList() {
             fontWeight: "bold",
             fontSize: "32px",
             textAlign: "center",
+            padding:"20px",
             mt: 1,
           }}
           gutterBottom
@@ -68,7 +70,22 @@ export default function UserList() {
           justifyContent="flex-end"
           alignItems="center"
         >
-          <Button onClick={() => {navigate("/signUp")}}>Add User</Button>
+          <Button
+            sx={{
+              width: "auto",
+              bgcolor: "red",
+              borderRadius: "5px",
+              height: "50px",
+              fontWeight: "bold",
+              "&:hover": {
+                bgcolor: "red",
+              },
+            }}
+            startIcon={<Add />}
+            onClick={() => navigate("/signUp")}
+          >
+            Add User
+          </Button>
         </Stack>
         <List
           sx={{
@@ -88,27 +105,47 @@ export default function UserList() {
                           direction="row"
                           justifyContent="space-between"
                           alignItems="center"
-                          spacing={2}>
+                          spacing={2}
+                        >
                           <Stack direction="column">
                             <Typography
-                              sx={{ display: 'inline' }}
+                              sx={{ display: "inline" }}
                               component="span"
                               variant="h6"
                             >
-                              {user.name}{" "}{user.surname}
+                              {user.name} {user.surname}
                             </Typography>
-                            <Typography
-                              component="span"
-                            >
-                            <Typography component="span" sx={{ fontWeight: 'bold' }}>Tc No:</Typography> {user.tcNo}
+                            <Typography component="span">
+                              <Typography
+                                component="span"
+                                sx={{ fontWeight: "bold" }}
+                              >
+                                Tc No:
+                              </Typography>{" "}
+                              {user.tcNo}
                             </Typography>
                           </Stack>
                         </Stack>
                       </React.Fragment>
                     }
-                    secondary={<>
-                      <Typography component="span" sx={{ fontWeight: 'bold' }}>Age:</Typography> {user.age} | <Typography component="span" sx={{ fontWeight: 'bold' }}>Gender:</Typography> {user.gender}
-                    </>}
+                    secondary={
+                      <>
+                        <Typography
+                          component="span"
+                          sx={{ fontWeight: "bold" }}
+                        >
+                          Age:
+                        </Typography>{" "}
+                        {user.age} |{" "}
+                        <Typography
+                          component="span"
+                          sx={{ fontWeight: "bold" }}
+                        >
+                          Gender:
+                        </Typography>{" "}
+                        {user.gender}
+                      </>
+                    }
                   />
                 </>
               </ListItem>
