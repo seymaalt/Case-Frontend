@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import { Input, Button, FormErrorMessage } from "../../components";
 import { registerSchema } from "../../schemas";
 import { useNavigate } from "react-router-dom";
-import { addUser } from "../../services/api";
+import { addUser } from "../../services/UserService";
 export default function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState("");

@@ -1,7 +1,7 @@
 import { Box, Container, List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Button } from "../../components";
-import { getUsers } from "../../services/api";
+import { getUsers } from "../../services/UserService";
 import { useNavigate } from 'react-router-dom';
 
 export default function UserList() {
