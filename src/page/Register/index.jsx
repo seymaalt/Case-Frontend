@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Grid, MenuItem, Stack, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { Input, Button, FormErrorMessage } from "../../components";
-import { registerSchema } from "../../Schemas";
+import { registerSchema } from "../../schemas";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../services/api";
 export default function Register() {
